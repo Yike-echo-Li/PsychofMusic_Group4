@@ -1,7 +1,7 @@
 clear all;
 clc;
 %% set path
-cd '/Users/echo/Documents/GoodGoodStudy/NYU_Psych/StudyHard/PsychofMusic/project';
+cd '/Users/PsychofMusic/project';
 savepth = [pwd '/stimuli'];
 if ~isfolder(savepth)
     mkdir(savepth);
