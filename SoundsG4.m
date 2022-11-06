@@ -1,14 +1,14 @@
 clear all;
 clc;
 %% set path
-cd '/Users/PsychofMusic/project';
+cd '/Users/echo/Documents/GoodGoodStudy/NYU_Psych/StudyHard/PsychofMusic/project';
 savepth = [pwd '/stimuli'];
 if ~isfolder(savepth)
     mkdir(savepth);
 end
-
+%% stimuli (tone pairs) for the frequency discrimination task
 freqCs = [50, 500, 5000]; % center frequencies: low mid high
-fs = 44100; % sampling frequency 16khz (or 44.1khz?)
+fs = 44100; % sampling frequency 44.1khz
 Ts = 0:1/fs:.250; % length of each tone: 250ms
 Ti = .500; % silent interval between two tones: 500ms
 for i = 1:length(freqCs)
@@ -31,3 +31,12 @@ for i = 1:length(freqCs)
         end
     end
 end
+
+%% long sound for adjusting the volume
+fa = 1000; % frequency of the long sound, 1000 Hz
+fs = 44100; % sampling frequency 44.1khz
+Ta = 0:1/fs:.025; % length 250ms
+Ta0 = 0.500; % length of silent gap 500ms
+sound_a = sin(2*pi*fa*Ta);
+sound_as = repmat([sound_a zeros(1, fs*Ta0) sound_a]', 25, 1);
+audiowrite([savepth '/Volume_adjustment.wav'], sound_as, fs);
