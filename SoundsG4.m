@@ -7,7 +7,7 @@ if ~isfolder(savepth)
     mkdir(savepth);
 end
 %% stimuli (tone pairs) for the frequency discrimination task
-freqCs = [50, 500, 5000]; % center frequencies: low mid high
+freqCs = [100, 500, 5000]; % center frequencies: low mid high
 fs = 44100; % sampling frequency 44.1khz
 Ts = 0:1/fs:.250; % length of each tone: 250ms
 Ti = .500; % silent interval between two tones: 500ms
